@@ -1,1 +1,115 @@
 /* Empty. Add your own CSS if you like */
+/*---------------------引导页----------------*/
+html,body{height: 100%;}
+@keyframes zoomin{
+  from{opacity:0;transform: scale(0.5);}
+  to{opacity: 1;transform: scale(1);}
+}
+@keyframes fadeinright{
+  from{transform: translateX(500px);opacity: 0;}
+  to{transform: translate(0);opacity: 1;}
+}
+@keyframes slideindown{
+  from{transform: translateY(-500px);opacity: 0.3;}
+  to{transform: translateY(0);opacity: 1;}
+}
+@keyframes twinkle{
+  from{opacity: 0.1;}
+  to{opacity: 1;}
+}
+
+/*---------------------------登录注册------------------------*/
+.register{
+  width:100%;
+  height:320px;
+  background:rgba(34,38,48,.9);
+  position: absolute;
+  /*top: 0;*/
+  /*left: 0;*/
+  /*right: 0;*/
+  bottom: 0;
+  /*margin:90% auto;*/
+}
+.register label{
+  border-color: inherit;
+  background:rgba(34,38,48,.9);
+}
+.register label span{
+  color:#fff
+}
+.register label input{
+  color:#fff
+}
+
+/*--------------------------首页------------------------*/
+.bar.bar-dark .title{
+  color:#ffd800;
+}
+.tab-item.tab-item-active{
+  color:#ffd800;
+}
+
+p{
+  margin: 0;
+}
+.tab-item .icon {
+  display: block;
+  margin: 2px auto;
+  height: 26px;
+  font-size: 24px;
+}
+ul.list{
+  margin-bottom:3px;
+}
+ul.list li{
+  position: relative;
+  height: 94px;
+}
+ul.list li p{
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin:72px auto;
+}
+ul.list li img{
+width:40%;position: absolute;top: 0;left: 0;bottom: 0;right: 0;margin: auto;
+}
+
+
+ul.story h3{
+  text-indent:1em;
+  line-height:1.6;
+  margin-bottom: 10px;
+  background:linear-gradient(to bottom, #f5f5f5,#eee)
+}
+ul.story li{
+  overflow: hidden;
+  background-position: center center;
+  position: relative;
+}
+ul.story li p{
+  margin-left:60px;
+}
+ul.story li p.time{
+  margin-top: 180px;
+  color:#fff;
+}
+ul.story li p.position{
+  color: #ffd800;
+}
+ul.story li p.content{
+  color:#fff;
+}
+ul.story li p.info{
+  color:#fff;
+}
+ul.story img{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius:50%;
+  left: 8px;
+  bottom: 8px;
+}

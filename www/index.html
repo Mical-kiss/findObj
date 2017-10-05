@@ -27,6 +27,7 @@
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
@@ -34,12 +35,13 @@
   </head>
   <body ng-app="starter">
 
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
-      </ion-header-bar>
-      <ion-content>
-      </ion-content>
-    </ion-pane>
+  <ion-nav-bar class="bar-dark" style="font-style: italic;font-weight: 900;color:#ffd800;">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-arrow-left-c"></i>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-nav-view>
+
+  </ion-nav-view>
   </body>
 </html>

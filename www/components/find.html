@@ -1,0 +1,97 @@
+<ion-view view-title="Find">
+  <ion-content>
+    <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper" style="background:rgba(252,227,75,1);">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" placeholder="搜索地点、人物、故事、话题">
+      </label>
+      <button class="button" style="background:rgba(255,216,0,1);">
+        搜索
+      </button>
+    </div>
+
+    <ul class="list" style="display: flex; text-align: center; flex-wrap:wrap;">
+      <li  style="position:relative; ;flex: 1 1 25%; border-left:1px solid #eee;border-bottom:1px solid #eee;box-sizing: border-box">
+        <a href="#/tab/food"><img src="img/list_food_icon@2x.png"  alt=""></a>
+        <p>美食</p>
+      </li>
+      <li style="flex: 1 1 25%;border-left:1px solid #eee;border-bottom:1px solid #eee;box-sizing: border-box">
+        <img src="img/list_culture_icon@2x.png" alt="">
+        <p>美食</p>
+      </li>
+      <li style="flex: 1 1 25%;border-left:1px solid #eee;border-bottom:1px solid #eee;box-sizing: border-box">
+        <img src="img/list_hotel_icon@2x.png" alt="">
+        <p>美食</p>
+      </li>
+      <li style="flex: 1 1 25%;border-left:1px solid #eee;border-bottom:1px solid #eee;box-sizing: border-box">
+        <img src="img/list_music_icon@2x.png" alt="">
+        <p>美食</p>
+      </li>
+      <li style="flex: 1 1 25%; border-left:1px solid #eee;border-bottom:1px solid #eee;box-sizing: border-box">
+        <img src="img/list_shop_icon@2x.png" alt="">
+        <p>美食</p>
+      </li>
+      <li style="flex: 1 1 25%;border-left:1px solid #eee;border-bottom:1px solid #eee;box-sizing: border-box">
+        <img src="img/list_sport_icon@2x.png" alt="">
+        <p>美食</p>
+      </li>
+      <li style="flex: 1 1 25%;border-left:1px solid #eee;border-bottom:1px solid #eee;box-sizing: border-box">
+        <img src="img/list_travel_icon@2x.png" alt="">
+        <p>美食</p>
+      </li>
+      <li style="flex: 1 1 25%;border-left:1px solid #eee;border-bottom:1px solid #eee;box-sizing: border-box">
+        <a href="#/tab/nearby"><img src="img/list_more_icon@2x.png" alt=""></a>
+        <p>附近</p>
+      </li>
+    </ul>
+
+
+    <ul class="story">
+      <h3>北京故事</h3>
+      <li style="width: 100%;height: 260px;background: red">
+        <p class="time">2014-3-2</p>
+        <p class="position">
+          我在北京
+        </p>
+        <p class="content">感谢大家</p>
+        <p class="info">
+          <span class="username">阿欢</span>
+          <span class="viewsNum">观看：33</span>
+          <span class="favorNum">赞：33</span>
+        </p>
+        <img src="img/ionic.png" alt="">
+      </li>
+    </ul>
+
+
+    <!--<div class="list">
+      <a ng-repeat="value in data" class="item item-thumbnail-left" href="#tabs/{{value.goodsID}}">
+        <img src="{{value.goodsListImg}}">
+        <h2>{{value.goodsName}}</h2>
+        <p>{{value.className}}</p>
+      </a>
+    </div>-->
+
+    <!--<ion-infinite-scroll
+      on-infinite="loadMore()"
+      distance="-5%">
+    </ion-infinite-scroll>-->
+  </ion-content>
+
+  <ion-tabs class="tabs-icon-top tabs-dark">
+
+    <ion-tab title="首页" icon="ion-android-home" href="#/tab/find">
+
+    </ion-tab>
+
+    <ion-tab title="附近" icon="ion-android-compass" href="#/tab/notice">
+
+    </ion-tab>
+
+    <ion-tab title="个人中心" icon="ion-android-person" href="#/tab/personal">
+
+    </ion-tab>
+
+  </ion-tabs>
+
+</ion-view>
