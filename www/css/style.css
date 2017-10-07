@@ -93,7 +93,7 @@ ul.story li p{
   margin-left:60px;
 }
 ul.story li p.time{
-  margin-top: 180px;
+  margin-top: 160px;
   color:#fff;
 }
 ul.story li p.position{
@@ -103,6 +103,7 @@ ul.story li p.content{
   color:#fff;
 }
 ul.story li p.info{
+  margin-bottom:20px;
   color:#fff;
 }
 ul.story img{
@@ -111,5 +112,78 @@ ul.story img{
   height: 40px;
   border-radius:50%;
   left: 8px;
-  bottom: 8px;
+  bottom: 18px;
+}
+
+/*---------------------图片滑动框-------------------*/
+.imgSlide .box div{
+  border-radius: 10px;
+  color:#fff;
+  padding: 10px;
+}
+.imgSlide .box div p:nth-of-type(1){
+
+font-size:14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 80%;
+
+}
+.imgSlide .box div p:nth-of-type(2){
+  color: #ffd800;
+}
+
+.imgSlide .slider .slider-pager{
+  display: none;
+}
+
+/*------------个人中心-----------------*/
+.personal_img{
+  width:60px;
+  height:60px;
+  border-radius: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.personal_nick{
+  height:16px;
+  text-align:center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin:128px auto;
+  color:#fff;
+  font-size:12px
+}
+
+.personal_info{
+  width:100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  font-size: 12px;
+  text-align: center;
+}
+.personal_info p{
+  color:#fff;
+}
+.personal_info span{
+  display:inline-block;
+  width:46px
+}
+.personal_info span p{
+  color:#fff;
+  font-weight: normal;
+}
+.personal_other a{
+  display: block;
+  font-size: 14px;
 }

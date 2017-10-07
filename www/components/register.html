@@ -6,8 +6,8 @@
 		    <input type="text" ng-model="info.username">
 		  </label>
 		  <label class="item item-input">
-		    <span class="input-label">邮箱</span>
-		    <input type="text" ng-model="info.email">
+		    <span class="input-label">手机</span>
+		    <input type="text" ng-model="info.email" style="width: 20px">
 		  </label>
 		  <label class="item item-input">
 		    <span class="input-label">密码</span>
@@ -19,5 +19,8 @@
 		  </label>
 		</div>
 		<ion-button class="button button-block button-positive" ng-click="register()">创建您的账户</ion-button>
-	</div>
+
+    <button  id="timer" ng-click="getNumber()" class="button button-small button-assertive" style="right: -80%;top:-214px;z-index:9;position: relative">获取</button>
+
+  </div>
 </div>

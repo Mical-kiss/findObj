@@ -1,6 +1,50 @@
-<ion-view view-title="附近的人" style="text-align: left">
+<ion-view view-title="附近的人" style="text-align: left;background: #eee;">
   <ion-content>
-    <h3>我是附近的人</h3>
+    <div class="bar bar-header item-input-inset">
+      <label class="item-input-wrapper" style="background:rgba(252,227,75,1);">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" placeholder="搜索地点、人物、故事、话题">
+      </label>
+      <button class="button" style="background:rgba(255,216,0,1);">
+        搜索
+      </button>
+    </div>
+    <h3 style="color:#333;margin: 10px 0;font-size:16px;font-family: '幼圆';line-height: 1.6;background: #fff;text-indent: 1em;">
+      <i class="ion-flame" style="color: #ffd800"></i>&emsp;热门地点
+    </h3>
+
+    <div class="card" style="margin: 0 5px; height: 300px;"id="container">
+
+    </div>
+
+<div class="imgSlide" style="margin-top: 10px;">
+  <ion-slide-box on-slide-changed="slideHasChanged($index)" style="width: 240px;height:120px;margin: auto;overflow: visible" >
+    <ion-slide style="overflow: hidden;">
+      <div class="box blue" style=" margin: 0 10px;">
+        <div style="width: 100%;height:120px;background: url(img/start2.jpg) center center" alt="">
+          <p>鲨鱼啥不同，海域海源阁，任何人之间的区别闭住还打</p>
+          <p>
+            <i class="ion-ios-navigate"></i> &emsp;36km;
+          </p>
+        </div>
+      </div>
+    </ion-slide>
+    <ion-slide style="overflow: hidden;">
+      <div class="box yellow" style="margin: 0 10px;"><div style="width: 100%;height:120px;background: url(img/start1.png) center center" alt=""></div></div>
+    </ion-slide>
+    <ion-slide style="overflow: hidden;">
+      <div class="box pink" style="margin: 0 10px;"><div style="width: 100%;height:120px;background: url(img/start3.jpg) center center" alt=""></div></div>
+    </ion-slide>
+    <ion-slide style="overflow: hidden;">
+      <div class="box pink" style="margin: 0 10px;"><div style="width: 100%;height:120px;background: url(img/start3.jpg) center center" alt=""></div></div>
+    </ion-slide>
+  </ion-slide-box>
+</div>
+    <br>
+    <br>
+    <br>
+    <br>
+
 
     <!--<div class="list">
       <a ng-repeat="value in data" class="item item-thumbnail-left" href="#tabs/{{value.goodsID}}">

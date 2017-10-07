@@ -1,0 +1,50 @@
+<ion-view title="详情" class='panel' style='z-index: 9999;'>
+
+	<div id="listbbox" style="position: relative;width: 100%;height: 100%;">
+		<img style="height: 100%;width: 100%;" src="img/details1.png">
+		<span class="ion-ios-arrow-thin-left" style="position: absolute;top: 10px ;left: 20px;font-size: 34px;color: #FFFFFF;opacity: 0.8;" ng-click="goBack()"></span>
+		<ion-slide-box on-slide-changed="slideHasChanged($index)" style="position: absolute;bottom: 90px;width: 100%;">
+		  <ion-slide style="padding: 10px;">
+		    <div class="box">
+		    	<p style="color: #FFFFFF;">date</p>
+				<p style="color: darkorange;font-weight: bolder;line-height: 30px;"><span class="ion-ios-location"></span>地理位置</p>
+		   		<p style="color: #FFFFFF;line-height: 25px;letter-spacing:2px;">详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍</h4>
+		    	<p style="color: darkorange;font-style: oblique;">#咖啡时光</p>
+		    </div>
+		  </ion-slide>
+		  <ion-slide style="padding: 10px;">
+		    <div class="box">
+		    	<p style="color: #FFFFFF;">date</p>
+				<p style="color: darkorange;font-weight: bolder;line-height: 30px;font-size: 16px;"><span class="ion-ios-location"></span>地理位置</p>
+		   		<h4 style="color: #FFFFFF;line-height: 23px;">详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍</h4>
+		    	<p style="color: darkorange;font-style:oblique">#咖啡时光</p>
+		    </div>
+		  </ion-slide>
+		   <ion-slide style="padding: 10px;">
+		    <div class="box">
+		    	<p style="color: #FFFFFF;">date</p>
+				<h4 style="color: darkorange;font-weight: bolder;line-height: 30px;"><span class="ion-ios-location"></span>地理位置</h4>
+		   		<p style="color: #FFFFFF;letter-spacing:3px;line-height: 25px;">详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍详情介绍</h4>
+		    	<p style="color: darkorange;font-style: initial;">#咖啡时光</p>
+		    </div>
+		  </ion-slide>
+		</ion-slide-box>
+
+
+		<div style="position: absolute;bottom: 0px;height: 80px; color: #FFFFFF;width: 100%;">
+			<p style="text-align: right;width: 100%;">111 <span class="ion-ios-eye"></span> &nbsp; 111 <span class="ion-ios-chatboxes"></span> &nbsp; 111 <span class="ion-heart"></span></p>
+			<hr style="border:0;border-bottom: 1px solid aliceblue;" />
+			<div style="position: absolute;"><img style="width: 40px;height: 40px;border-radius: 100%;vertical-align: middle;padding: 5px;" src="img/ionic.png"/><span>发表人的名字</span>
+			</div>
+			<div style="width: 100%;height: 40px;text-align: right;line-height: 40px;">
+				<span style="padding: 0 10px;font-size:18px;" class="ion-ios-redo-outline" ng-click="share()"></span>
+				<span style="padding: 0 10px;font-size:18px;" class="ion-ios-chatboxes-outline" ng-click="message()"></span>
+				<span id="lick" style="padding: 0 10px;font-size:18px;" class="ion-ios-heart-outline" ng-click="lick()"></span>
+			</div>
+		</div>
+
+	</div>
+
+
+
+</ion-view>

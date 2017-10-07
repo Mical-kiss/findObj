@@ -1,0 +1,53 @@
+<ion-view title="个人中心">
+
+	<ion-content>
+		<div style="background: url(img/personal.png) no-repeat center center/cover;height:188px;position: relative;">
+			<img class="personal_img" src="img/personer.jpg"/>
+			<p class="personal_nick" style="">小新</p>
+			<div class="personal_info">
+				<span>故事<p>692</p></span>
+				<span>粉丝<p>968</p></span>
+				<span>关注<p>569</p></span>
+			</div>
+		</div>
+		<div class="list personal_other">
+
+		  <a class="item item-icon-left" href="#/notice">
+		    <i class="icon ion-android-notifications-none"></i>
+		    通知
+		    <span class="badge badge-assertive">0</span>
+		  </a>
+
+		  <a class="item item-icon-left" href="#">
+		    <i class="icon ion-android-favorite-outline"></i>
+		    我的收藏
+		  </a>
+
+		  <a class="item item-icon-left" href="#">
+		    <i class="icon ion-ios-paw-outline"></i>
+		    我的足迹
+		  </a>
+
+		  <a class="item item-icon-left" href="#">
+		    <i class="icon ion-ios-personadd-outline"></i>
+		    编辑资料
+		  </a>
+
+		  <a class="item item-icon-left" href="#">
+		    <i class="icon ion-ios-gear-outline"></i>
+		    设置
+		  </a>
+		</div>
+
+
+	</ion-content>
+	<ion-tabs class="tabs-icon-top tabs-dark">
+	    <ion-tab title="首页" icon="ion-android-home" href="#/tab/find">
+	    </ion-tab>
+	    <ion-tab title="附近" icon="ion-android-compass" href="#/nearby">
+	    </ion-tab>
+	    <ion-tab title="个人中心" icon="ion-android-person" href="#/personal">
+	    </ion-tab>
+	</ion-tabs>
+
+</ion-view>
