@@ -1,4 +1,4 @@
-<div style="background:url(img/bg.jpg) no-repeat center center/cover;z-index: 999;" class="panel">
+<div style="background:url('img/bg.jpg') no-repeat center center/cover;z-index: 999;" class="panel">
 	<div class="register">
 		<div class="list">
 		  <label class="item item-input">
@@ -11,11 +11,11 @@
 		  </label>
 		  <label class="item item-input">
 		    <span class="input-label">密码</span>
-		    <input type="password" ng-model="info.password">
+		    <input type="password" placeholder="数字字母下划线组成" ng-model="info.password">
 		  </label>
 		  <label class="item item-input">
 		    <span class="input-label">确认密码</span>
-		    <input type="password">
+		    <input type="password" placeholder="输入一致密码">
 		  </label>
 		</div>
 		<ion-button class="button button-block button-positive" ng-click="register()">创建您的账户</ion-button>

@@ -1,0 +1,25 @@
+<ion-view title="发文章">
+	<!--<button class="button button-clear button-positive" style="position: fixed;right: 10px;">发送</button>-->
+
+
+
+		<textarea type="text" placeholder="请输入要发表的内容..." class="has-header" style="width: 100%;height: 100%;padding: 44px 10px 10px 10px;font-size: 18px;line-height: 30px;" ng-model="ipt.txt" id="txt" ></textarea>
+
+		<div style="height: 40px;width: 100%;position: absolute;bottom: 0px;border:1px solid lightblue;font-size: 32px;display: flex;justify-content: space-around;line-height: 40px;background: #FFFFFF;">
+			<span ng-click="pic()" class="ion-image"></span>
+			<span ng-click="cma()">@</span>
+			<span>#</span>
+
+
+		</div>
+		<div style="line-height: 30px;position: absolute;bottom: 50px;left: 10px;color: lightskyblue;border-radius: 20% 20%;background: lightcyan;padding: 0 10px;">
+			<span class="ion-ios-location"></span>
+			<span>{{Map.regeocode.aois[0].name}}</span>
+		</div>
+		<div style="position: absolute;bottom: 45px;line-height: 40px;width: 100%;text-align: right;font-size: 24px;padding: 0 10px;">
+			<span ng-click="pub()" style="padding:5px 10px;color: lightslategray;background: #F1F2F3;border-radius: 5%;font-family: '方正舒体';border: 1px dotted red;">发表</span>
+		</div>
+		<!--<div style="width: 100px;height: 150px;position: absolute;bottom: 40px;right: 0;border:1px solid lightblue;" id="container"></div>-->
+
+
+</ion-view>

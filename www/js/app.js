@@ -99,10 +99,49 @@ angular.module('starter', ['ionic', 'ngCordova'])
         url:"/notice",
         templateUrl:"components/notice.html"
       })
-
+      .state('publish',{
+        url:'/publish',
+        templateUrl:'components/publish.html',
+        controller:'publish'
+      })
+      .state("message",{
+        url:"/message",
+        templateUrl:"components/message.html"
+      })
+      .state("collection",{
+        url:"/collection",
+        templateUrl:"components/collection.html"
+      })
+      .state("safe",{
+        url:"/safe",
+        templateUrl:"components/safe.html"
+      })
+      .state("footprint",{
+        url:"/footprint",
+        templateUrl:"components/footprint.html"
+      })
+      .state("attention",{
+        url:"/attention",
+        templateUrl:"components/attention.html"
+      })
+      .state("addFriends",{
+        url:"/addFriends",
+        templateUrl:"components/addFriends.html",
+        controller:"addFriends"
+      })
     $urlRouterProvider.otherwise('/viewpager')
   })
-  .controller('viewpager',function($scope,$location){
+
+  /*--------------------引导页---------------------*/
+  .controller('viewpager',function($scope,$location,$cordovaDialogs){
+
+    /*document.addEventListener("deviceready", function () {
+
+      $cordovaDialogs.alert('信息', '提示', '确定')
+        .then(function() {
+          // callback success
+        });
+    }, false);*/
 
     $scope.slideHasChanged=function(i){
       var idslide0=document.getElementById('slide0')
@@ -145,7 +184,9 @@ angular.module('starter', ['ionic', 'ngCordova'])
     }
 
   })
-  .controller("register",["$scope","$http","$location","$interval","$cordovaToast",function($scope,$http,$location,$interval,$cordovaToast) {
+
+  /*-------------------注册--------------------*/
+  .controller("register",["$scope","$http","$location","$interval","$cordovaDialogs",function($scope,$http,$location,$interval,$cordovaDialogs) {
     $scope.info = {}
     $scope.info.timer = 60;
     var myTimer=null;
@@ -154,21 +195,21 @@ angular.module('starter', ['ionic', 'ngCordova'])
       //用户名验证
       var reg1 = /^[a-zA-Z]\w*$/i;
       if ($scope.info.username && !reg1.test($scope.info.username)) {
-        alert("用户名格式不正确");
-
+        // alert("用户名格式不正确");
+        $cordovaDialogs.alert('用户名格式不正确', '提示', '确定')
         return false;
       }
       //手机验证
       var reg3 = /^0{0,1}(13[0-9]|15[7-9]|153|156|18[7-9])[0-9]{8}$/;
       if ($scope.info.email && !reg3.test($scope.info.email)) {
-        alert("请重新检查邮箱格式填写是否正确");
-
+        // alert("请重新检查手机格式填写是否正确");
+        $cordovaDialogs.alert('请重新检查手机格式填写是否正确', '提示', '确定')
       }
       //密码验证
       var reg2 = /^([a-zA-z]+[0-9]+)|([0-9]+[a-zA-Z]+)$/i;
-      if (($scope.info.password).length < 8 && !reg2.test($scope.info.password)) {
-        alert("密码格式不正确");
-
+      if ( !reg2.test($scope.info.password)) {
+        // alert("密码格式不正确");
+        $cordovaDialogs.alert('密码格式不正确', '提示', '确定')
         return false;
       }
 
@@ -179,9 +220,10 @@ angular.module('starter', ['ionic', 'ngCordova'])
       }).success(function (data) {
         console.log(data);
         if (data.code == '6001') {
-          alert('用户名已存在');
-
+          // alert('用户名已存在');
+          $cordovaDialogs.alert('用户名已存在', '提示', '确定')
         } else if (data.code == '9001') {
+          $cordovaDialogs.alert('注册成功', '提示', '确定')
           localStorage.setItem('user', $scope.info.username)
           $location.path('/tab/find');
         }
@@ -194,8 +236,8 @@ angular.module('starter', ['ionic', 'ngCordova'])
       var reg3 = /^0{0,1}(13[0-9]|15[7-9]|153|156|18[7-9])[0-9]{8}$/;
 
       if ($scope.info.email && !reg3.test($scope.info.email)) {
-        alert("请重新检查手机格式填写是否正确");
-
+        // alert("请重新检查手机格式填写是否正确");
+        $cordovaDialogs.alert('请重新检查手机格式填写是否正确', '提示', '确定')
       }else{
         if (flag) {
           timer.innerHTML='60s';
@@ -221,8 +263,8 @@ angular.module('starter', ['ionic', 'ngCordova'])
             })
         }
         else{
-          alert('请60s后再试');
-
+          // alert('请60s后再试');
+          $cordovaDialogs.alert('请60s后再试', '提示', '确定')
         }
       }
 
@@ -233,8 +275,8 @@ angular.module('starter', ['ionic', 'ngCordova'])
       $interval.cancel(myTimer);
     })
   }])
-
-  .controller("login",["$scope","$http","$location",function($scope,$http,$location){
+/*----------------------登录-----------------------*/
+  .controller("login",["$scope","$http","$location","$cordovaDialogs",function($scope,$http,$location,$cordovaDialogs){
     $scope.info = {}
     $scope.login = function(){
       $http({
@@ -242,11 +284,13 @@ angular.module('starter', ['ionic', 'ngCordova'])
         params:{"username":$scope.info.username,"password":$scope.info.password}
       }).then(function(data){
 
-        alert('登陆成功')
+        // alert('登陆成功');
+        $cordovaDialogs.alert('登陆成功', '提示', '确定')
         localStorage.setItem('user',$scope.info.username)
         $location.path('/tab/find');
       },function (data) {
-        alert(JSON.stringify(data));
+        // alert(JSON.stringify(data));
+        $cordovaDialogs.alert("服务器错误", '提示', '确定')
       })
     }
   }])
@@ -280,9 +324,11 @@ angular.module('starter', ['ionic', 'ngCordova'])
         })
     };
   })
+  /*----------------------食物列表----------------*/
   .controller('food',function ($scope) {
 
   })
+  /*---------------------附近的人--------------------*/
   .controller('nearby',function ($scope,$cordovaGeolocation) {
     console.log(123);
     /*document.addEventListener("deviceready", function () {
@@ -319,6 +365,7 @@ angular.module('starter', ['ionic', 'ngCordova'])
         // error
       });
   })
+  /*---------------------详情页-----------------*/
   .controller('details',function($scope,$http,$stateParams,$cordovaSocialSharing){
     $scope.goBack=function(){
       history.back();
@@ -345,5 +392,133 @@ angular.module('starter', ['ionic', 'ngCordova'])
       oLick.style.color='aliceblue';
       oLick.classList.remove('ion-ios-heart-outline');
       oLick.classList.add('ion-ios-heart');
+    }
+  })
+
+  /*-------------------发表---------------------*/
+  .controller('publish',function($scope,$http,$cordovaGeolocation,$cordovaCamera,$cordovaFileTransfer){
+    var str=''
+    var posOptions = {timeout: 10000, enableHighAccuracy: false};
+    $cordovaGeolocation
+      .getCurrentPosition(posOptions)
+      .then(function (position) {
+        var lat  = position.coords.latitude
+        var long = position.coords.longitude
+        console.log(lat,long);
+        str=long.toFixed(6)+','+lat.toFixed(6);
+        console.log(str)
+        $http({
+          url:'http://restapi.amap.com/v3/geocode/regeo?parameters',
+          params:{key:'1e164ab2055e56e1ca7816ebda973a21',location:str,extensions:'all',poitype:'POI TYPECODE',output:'JSON'}
+
+        })
+          .success(function(data){
+            console.log(data)
+            $scope.Map=data;
+            //{{Map.regeocode.aois[0].name}}
+            //Map信息
+            var oTxt=document.getElementById('txt')
+            $scope.pub=function(){
+              console.log(oTxt.value,str)
+            }
+
+          })
+      }, function(err) {
+        // error
+      });
+
+    //相册功能
+    $scope.pic=function(){
+      console.log('ss')
+
+    }
+    //拍照功能
+    $scope.cma=function(){
+      console.log('sss')
+      document.addEventListener("deviceready", function () {
+        var options = {
+          quality: 50,
+          destinationType: Camera.DestinationType.DATA_URL,
+          sourceType: Camera.PictureSourceType.CAMERA,
+          allowEdit: true,
+          encodingType: Camera.EncodingType.JPEG,
+          targetWidth: 100,
+          targetHeight: 100,
+          popoverOptions: CameraPopoverOptions,
+          saveToPhotoAlbum: false,
+          correctOrientation:true
+        };
+
+        var options = {
+          destinationType: Camera.DestinationType.FILE_URI,
+          sourceType: Camera.PictureSourceType.CAMERA,
+        };
+
+        $cordovaCamera.getPicture(options).then(function(imageURI) {
+          var image = document.getElementById('myimg');
+          image.src = imageURI;
+          $scope.pub=function(){
+            var url = "http://cdn.wall-pix.net/albums/art-space/00030109.jpg";
+            var targetPath = cordova.file.documentsDirectory + "testImage.png";
+            var trustHosts = true;
+            var options = {};
+            $cordovaFileTransfer.upload(server, filePath, options)
+              .then(function(result) {
+                // Success!
+              }, function(err) {
+                // Error
+              }, function (progress) {
+                // constant progress updates
+              });
+          }
+
+        }, function(err) {
+          // error
+        });
+      }, false);
+    }
+  })
+
+/*-----------------*/
+  .controller("addFriends",function($scope,$cordovaContacts,$ionicPlatform,$cordovaBarcodeScanner) {
+    $scope.address = function () {
+      $cordovaContacts.pickContact().then(function (contactPicked) {
+        $scope.contact = contactPicked;
+        alert(contactPicked);
+      })
+      /*$cordovaContacts.save($scope.contactForm).then(function(result) {
+   // Contact saved
+   alert(result);
+ }, function(err) {
+   // Contact error
+   alert(err);
+ });*/
+    }
+
+
+    $scope.scan = function () {
+      document.addEventListener("deviceready", function () {
+
+        $cordovaBarcodeScanner
+          .scan()
+          .then(function (barcodeData) {
+            // Success! Barcode data is here 扫描数据：barcodeData.text
+            console.log(11)
+          }, function (error) {
+            // An error occurred
+          });
+
+
+        // NOTE: encoding not functioning yet
+        $cordovaBarcodeScanner
+          .encode(BarcodeScanner.Encode.TEXT_TYPE, "http://www.nytimes.com")
+          .then(function (success) {
+            // Success!
+          }, function (error) {
+            // An error occurred
+          });
+
+      }, false);
+
     }
   })

@@ -10,7 +10,10 @@
     },
     "dependencies": {
         "cordova-plugin-console": "^1.1.0",
+        "cordova-plugin-contacts": "^2.3.1",
         "cordova-plugin-device": "^1.1.4",
+        "cordova-plugin-file": "^4.0.0",
+        "cordova-plugin-file-transfer": "^1.6.3",
         "cordova-plugin-geolocation": "^2.4.3",
         "cordova-plugin-splashscreen": "^4.0.3",
         "cordova-plugin-statusbar": "^2.2.1",
@@ -27,7 +30,9 @@
             "cordova-plugin-statusbar": {},
             "ionic-plugin-keyboard": {},
             "cordova-plugin-geolocation": {},
-            "cordova-plugin-x-socialsharing": {}
+            "cordova-plugin-x-socialsharing": {},
+            "cordova-plugin-contacts": {},
+            "cordova-plugin-file-transfer": {}
         }
     },
     "cordovaPlugins": [
