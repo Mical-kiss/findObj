@@ -93,7 +93,8 @@ angular.module('starter', ['ionic', 'ngCordova'])
       })
       .state("personal",{
         url:"/personal",
-        templateUrl:"components/personal.html"
+        templateUrl:"components/personal.html",
+        controller:'personal'
       })
       .state("notice",{
         url:"/notice",
@@ -200,7 +201,7 @@ angular.module('starter', ['ionic', 'ngCordova'])
         return false;
       }
       //手机验证
-      var reg3 = /^0{0,1}(13[0-9]|15[7-9]|153|156|18[7-9])[0-9]{8}$/;
+      var reg3 = /^1[3|4|5|8][0-9]\d{4,8}$/;
       if ($scope.info.email && !reg3.test($scope.info.email)) {
         // alert("请重新检查手机格式填写是否正确");
         $cordovaDialogs.alert('请重新检查手机格式填写是否正确', '提示', '确定')
@@ -215,25 +216,49 @@ angular.module('starter', ['ionic', 'ngCordova'])
 
 
       $http({
-        url: "http://10.8.155.3:8080/find/regist",
-        params: {"username": $scope.info.username, "password": $scope.info.password, "email": $scope.info.email}
-      }).success(function (data) {
+        // method: 'POST',
+        url: "http://10.8.155.18:8080/find/regist",
+        params: {
+          "username": $scope.info.username,
+          "password": $scope.info.password,
+          // "co_password":$scope.info.password,
+          "phone":$scope.info.email,
+          "code": $scope.info.verify
+        }
+      }).then(function (data) {
         console.log(data);
         if (data.code == '6001') {
           // alert('用户名已存在');
           $cordovaDialogs.alert('用户名已存在', '提示', '确定')
         } else if (data.code == '9001') {
           $cordovaDialogs.alert('注册成功', '提示', '确定')
+            $http({
+              url:"http://10.8.155.18:8080/find/login",
+              params:{"username":$scope.info.username,"password":$scope.info.password}
+            }).then(function(data){
+
+
+              localStorage.setItem('user',$scope.info.username);
+              localStorage.setItem('user_id',data.data.u_id);
+
+            },function (data) {
+
+              $cordovaDialogs.alert("服务器错误", '提示', '确定')
+            })
+
           localStorage.setItem('user', $scope.info.username)
           $location.path('/tab/find');
         }
+
+      },function (err) {
+        $cordovaDialogs.alert('服务器错误', '提示', '确定')
 
       })
     }
 
     $scope.getNumber = function () {
 
-      var reg3 = /^0{0,1}(13[0-9]|15[7-9]|153|156|18[7-9])[0-9]{8}$/;
+      var reg3 = /^1[3|4|5|8][0-9]\d{4,8}$/;
 
       if ($scope.info.email && !reg3.test($scope.info.email)) {
         // alert("请重新检查手机格式填写是否正确");
@@ -242,13 +267,13 @@ angular.module('starter', ['ionic', 'ngCordova'])
         if (flag) {
           timer.innerHTML='60s';
           $http({
-            url: 'http://datainfo.duapp.com/shopdata/getGoods.php',
+            url: 'http://10.8.155.18:8080/find/regist/phone',
             params: {
               phone:$scope.info.email,
-              callback: ''
             }
           })
             .success(function (data) {
+              console.log(data);
               flag=false;
               $interval.cancel(myTimer);
               myTimer = $interval(function () {
@@ -267,10 +292,7 @@ angular.module('starter', ['ionic', 'ngCordova'])
           $cordovaDialogs.alert('请60s后再试', '提示', '确定')
         }
       }
-
     }
-
-
     $scope.$on('$destroy',function(){
       $interval.cancel(myTimer);
     })
@@ -286,7 +308,9 @@ angular.module('starter', ['ionic', 'ngCordova'])
 
         // alert('登陆成功');
         $cordovaDialogs.alert('登陆成功', '提示', '确定')
-        localStorage.setItem('user',$scope.info.username)
+        console.log(data);
+        localStorage.setItem('user',$scope.info.username);
+        localStorage.setItem('user_id',data.data.u_id);
         $location.path('/tab/find');
       },function (data) {
         // alert(JSON.stringify(data));
@@ -326,7 +350,7 @@ angular.module('starter', ['ionic', 'ngCordova'])
   })
   /*----------------------食物列表----------------*/
   .controller('food',function ($scope) {
-
+    console.log(123);
   })
   /*---------------------附近的人--------------------*/
   .controller('nearby',function ($scope,$cordovaGeolocation) {
@@ -479,7 +503,7 @@ angular.module('starter', ['ionic', 'ngCordova'])
     }
   })
 
-/*-----------------*/
+/*-----------------添加好友---------------*/
   .controller("addFriends",function($scope,$cordovaContacts,$ionicPlatform,$cordovaBarcodeScanner) {
     $scope.address = function () {
       $cordovaContacts.pickContact().then(function (contactPicked) {
@@ -521,4 +545,15 @@ angular.module('starter', ['ionic', 'ngCordova'])
       }, false);
 
     }
+  })
+/*----------------个人中心--------------*/
+  .controller('personal',function ($scope,$http) {
+    console.log(123);
+    $http({
+      url:'http://10.8.155.18:8080/find/',
+      params:{u_id:localStorage.getItem('user')}
+    }).then(function (data) {
+      console.log(data);
+    })
+
   })
